@@ -1,0 +1,95 @@
+\documentclass[usletter, 10pt, conference]{ieeeconf}
+\newcommand{\mbm}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\usepackage{url}
+
+\usepackage[ruled,noend,linesnumbered]{algorithm2e}
+\usepackage{subfigure}
+\usepackage{graphicx,color,psfrag}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bigdelim}
+\usepackage{dsfont}
+\usepackage{color, soul}
+%\usepackage[section]{placeins}
+%\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{subcaption}
+
+\pdfminorversion=4
+\IEEEoverridecommandlockouts                              
+\overrideIEEEmargins
+
+\newcommand{\ville}[1]{\textcolor{blue}{\small Ville: #1}}
+\newcommand{\raj}[1]{\textcolor{green}{\small Raj: #1}}
+
+\title{Semantic-MultiKinFu: Multiple Semantic-TSDF 3D grid Maps for Warehouse Robots} 
+
+% Multiple authors
+\author{Dinh-Cuong Hoang$^{*}$, Todor Stoyanov$^{*}$, and Achim J. Lilienthal$^{*}$% <-this % stops a space
+\thanks{*Centre for Applied Autonomous Sensor Systems (AASS); Orebro University.}% <-this % stops a space
+}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+%
+%
+
+\begin{figure*}[t!]
+\centering
+\subfigure[] {
+        \includegraphics[width = 0.31\linewidth, height=3.0cm]{figs/collision_grid}
+	    \label{fig:collision_grid}
+}
+\subfigure[] {
+        \includegraphics[width = 0.31\linewidth, height=3.0cm]{figs/valid_configs}
+	    \label{fig:valid_configs}
+}
+\subfigure[] {
+        \includegraphics[width = 0.31\linewidth, height=3.0cm]{figs/distance_field}
+	    \label{fig:distance_field}
+}
+\caption{Two-dimensional illustrations of the three main steps of our approach: \subref{fig:collision_grid} approach to pre-computing a collision map for the initial grasp envelope primitive; \subref{fig:valid_configs} three types of collisions which can occur and which are handled differently by our approach; \subref{fig:distance_field} process used for finding the maximum-volume cluster of valid grasp postures. The maximum-volume cluster in \subref{fig:distance_field} is shown in the shaded rectangle labeled \textbf{b}. }
+\label{fig:method}
+\end{figure*}
+%
+%
+
+\begin{abstract}
+Grasping systems that build upon meticulously planned hand postures rely on precise knowledge of
+object geometry, mass and frictional properties --- assumptions which are often violated in
+practice.
+ In this work, we propose an alternative solution to the problem of grasp acquisition in simple autonomous pick and place scenarios, by utilizing the concept of grasp envelopes: sets of constraints on gripper postures.
+We propose a fast method for extracting grasp envelopes for objects that fit within a known shape category, placed in an unknown environment.
+Our approach is based on grasp envelope primitives, which encode knowledge of human grasping strategies.
+We use environment models, reconstructed from noisy sensor observations, to refine the grasp envelope primitives and extract bounded envelopes of collision-free gripper postures.
+Also, we evaluate the envelope extraction procedure both in a stand alone fashion, as well as an integrated component of an autonomous picking system.
+\end{abstract}
+%
+\input{Introduction} 
+%
+\input{RelatedWork}
+%
+\input{Method}
+%
+\input{Results}
+%
+\input{Discussion}
+%
+\bibliographystyle{IEEEtran}
+\bibliography{References}
+
+\end{document}
+
+
+

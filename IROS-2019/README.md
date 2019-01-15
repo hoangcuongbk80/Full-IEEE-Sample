@@ -1,0 +1,1 @@
+This project houses the grasp envelope extraction paper for icra 2016
